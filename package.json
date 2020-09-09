@@ -36,7 +36,7 @@
         "compress:imgs:public": "node compress-images-public.js",
         "dev": "npm-run-all --parallel clear:dist compress:imgs server:start watch:html watch:scss watch:js",
         "dev:hot-reload": "npm-run-all --parallel clear:dist compress:imgs server:start:hot-reload watch:html watch:scss watch:js",
-        "vercel:build": "npm install npm-run-all --parallel clear:public build:html:public build:scss:public build:js:public"
+        "vercel:build": "npm-run-all --parallel clear:public build:html:public build:scss:public build:js:public compress:imgs:public"
     },
     "author": "web_disciple",
     "license": "ISC"
