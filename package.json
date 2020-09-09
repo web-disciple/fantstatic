@@ -1,0 +1,37 @@
+{
+    "name": "fantstatic",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^11.0.1",
+        "@rollup/plugin-node-resolve": "^7.0.0",
+        "compress-images": "^1.9.5",
+        "empty-folder": "^2.0.4",
+        "gifsicle": "^5.1.0",
+        "html-includes": "^4.3.3",
+        "node-sass": "^4.14.1",
+        "npm-run-all": "^4.1.5",
+        "pngquant-bin": "^6.0.0",
+        "rollup": "^1.16.2",
+        "rollup-plugin-terser": "^5.0.0",
+        "serve": "^11.0.2"
+    },
+    "scripts": {
+        "clear:dist": "node empty-folder.js",
+        "server:start": "serve dist",
+        "server:start:hot-reload": "lr | serve dist",
+        "watch:html": "html-includes --watch --src _dev/html --dest dist",
+        "build:html": "html-includes --src src --dest dist --minify",
+        "watch:scss": "node-sass --watch _dev/style/main.scss -o dist/style --output-style",
+        "build:scss": "node-sass --watch _dev/style/main.scss -o dist/style --output-style compressed",
+        "watch:js": "rollup -c -w",
+        "build:js": "rollup -c",
+        "compress:imgs": "node compress-images.js",
+        "dev": "npm-run-all --parallel clear:dist compress:imgs server:start watch:html watch:scss watch:js",
+        "dev:hot-reload": "npm-run-all --parallel clear:dist compress:imgs server:start:hot-reload watch:html watch:scss watch:js"
+    },
+    "author": "",
+    "license": "ISC"
+}

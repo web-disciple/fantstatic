@@ -1,0 +1,15 @@
+// Plugins
+@import "./plugins/tailwind";
+
+// Utilities
+@import "./utilities/fonts";
+@import "./utilities/variables";
+
+// Components
+@import "./components/atoms/atoms";
+@import "./components/molecules/molecules";
+@import "./components/blocks/block";
+
+html {
+    background-color: red;
+}
