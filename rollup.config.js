@@ -9,7 +9,7 @@ const production = !process.env.ROLLUP_WATCH;
 export default [
 	//main.js call on all pages
 	{
-		input: '_dev/js/main/main.js',
+		input: '_dev/js/main.js',
 		output: {
 			file: production ? 'public/js/main.js' : 'dist/js/main.js',
 			format: 'iife', // immediately-invoked function expression — suitable for <script> tags
