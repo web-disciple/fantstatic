@@ -2,8 +2,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
-// `npm run build` -> `production` is true
-// `npm run dev` -> `production` is false
+// `npm run watch:js` -> `production` is true
+// `npm run build:js` -> `production` is false
 const production = !process.env.ROLLUP_WATCH;
 
 export default [
@@ -11,9 +11,9 @@ export default [
 	{
 		input: '_dev/js/main/main.js',
 		output: {
-			file: 'dist/js/main-bundle.js',
+			file: production ? 'public/js/main-bundle.js' : 'dist/js/main-bundle.js',
 			format: 'iife', // immediately-invoked function expression — suitable for <script> tags
-			sourcemap: true
+			sourcemap: !production
 		},
 		plugins: [
 			resolve(), // tells Rollup how to find date-fns in node_modules
@@ -25,9 +25,9 @@ export default [
 	{
 		input: '_dev/js/specific/specific-for-test.js',
 		output: {
-			file: 'dist/js/specific/specific-for-test.js',
+			file: production ? 'public/js/specific/specific-for-test.js' : 'dist/js/specific/specific-for-test.js',
 			format: 'iife',
-			sourcemap: true
+			sourcemap: !production
 		},
 		plugins: [
 			resolve(),

@@ -19,19 +19,32 @@
         "serve": "^11.0.2"
     },
     "scripts": {
-        "clear:dist": "node empty-folder.js",
+        "clear:dist": "node empty-dist.js",
+        "clear:public": "node empty-public.js",
+
         "server:start": "serve dist",
         "server:start:hot-reload": "lr | serve dist",
+
         "watch:html": "html-includes --watch --src _dev/html --dest dist",
-        "build:html": "html-includes --src src --dest dist --minify",
+        "build:html:dist": "html-includes --src src --dest dist",
+        "build:html:public": "html-includes --src _dev/html --dest public --minify",
+
         "watch:scss": "node-sass --watch _dev/style/main.scss -o dist/style --output-style",
-        "build:scss": "node-sass --watch _dev/style/main.scss -o dist/style --output-style compressed",
-        "watch:js": "rollup -c -w",
-        "build:js": "rollup -c",
-        "compress:imgs": "node compress-images.js",
+        "build:scss:dist": "node-sass --watch _dev/style/main.scss -o dist/style --output-style",
+        "build:scss:public": "node-sass _dev/style/main.scss -o public/style --output-style --compressed",
+
+        "watch:js:dist": "rollup -c -w",
+        "build:js:public": "rollup -c",
+
+        "compress:imgs:dist": "node compress-images-dist.js",
+        "compress:imgs:public": "node compress-images-public.js",
+
         "dev": "npm-run-all --parallel clear:dist compress:imgs server:start watch:html watch:scss watch:js",
-        "dev:hot-reload": "npm-run-all --parallel clear:dist compress:imgs server:start:hot-reload watch:html watch:scss watch:js"
+        "dev:hot-reload": "npm-run-all --parallel clear:dist compress:imgs server:start:hot-reload watch:html watch:scss watch:js",
+
+        "vercel:build": "npm-run-all --parallel clear:public build:html:public build:scss:public build:js:public compress:imgs:public"
+        
     },
-    "author": "",
+    "author": "web_disciple",
     "license": "ISC"
 }
