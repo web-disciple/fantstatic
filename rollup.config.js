@@ -11,7 +11,7 @@ export default [
 	{
 		input: '_dev/js/main/main.js',
 		output: {
-			file: production ? 'public/js/main-bundle.js' : 'dist/js/main-bundle.js',
+			file: production ? 'public/js/main.js' : 'dist/js/main.js',
 			format: 'iife', // immediately-invoked function expression — suitable for <script> tags
 			sourcemap: !production
 		},
