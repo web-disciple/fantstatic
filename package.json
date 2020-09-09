@@ -7,6 +7,7 @@
     "devDependencies": {
         "@rollup/plugin-commonjs": "^11.0.1",
         "@rollup/plugin-node-resolve": "^7.0.0",
+        "automake": "^0.1.4",
         "compress-images": "^1.9.5",
         "empty-folder": "^2.0.4",
         "gifsicle": "^5.1.0",
@@ -21,29 +22,21 @@
     "scripts": {
         "clear:dist": "node empty-dist.js",
         "clear:public": "node empty-public.js",
-
         "server:start": "serve dist",
         "server:start:hot-reload": "lr | serve dist",
-
         "watch:html": "html-includes --watch --src _dev/html --dest dist",
         "build:html:dist": "html-includes --src src --dest dist",
         "build:html:public": "html-includes --src _dev/html --dest public --minify",
-
         "watch:scss": "node-sass --watch _dev/style/main.scss -o dist/style --output-style",
         "build:scss:dist": "node-sass --watch _dev/style/main.scss -o dist/style --output-style",
         "build:scss:public": "node-sass _dev/style/main.scss -o public/style --output-style --compressed",
-
         "watch:js:dist": "rollup -c -w",
         "build:js:public": "rollup -c",
-
         "compress:imgs:dist": "node compress-images-dist.js",
         "compress:imgs:public": "node compress-images-public.js",
-
         "dev": "npm-run-all --parallel clear:dist compress:imgs server:start watch:html watch:scss watch:js",
         "dev:hot-reload": "npm-run-all --parallel clear:dist compress:imgs server:start:hot-reload watch:html watch:scss watch:js",
-
         "vercel:build": "npm install npm-run-all --parallel clear:public build:html:public build:scss:public build:js:public compress:imgs:public"
-        
     },
     "author": "web_disciple",
     "license": "ISC"
