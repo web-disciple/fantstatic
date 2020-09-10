@@ -34,4 +34,5 @@ export default [
 			commonjs(),
 			production && terser()
 		]
-	}];
+	}
+];
