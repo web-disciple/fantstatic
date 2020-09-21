@@ -1,1 +1,1 @@
-console.log("test")
+console.log("Le js global appelé sur toutes les pages")

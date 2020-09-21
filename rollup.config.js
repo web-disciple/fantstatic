@@ -23,9 +23,9 @@ export default [
 	},
 	// specifics scripts
 	{
-		input: '_dev/js/specific/specific-for-test.js',
+		input: '_dev/js/specific/specific-for-homepage.js',
 		output: {
-			file: production ? 'public/js/specific/specific-for-test.js' : 'dist/js/specific/specific-for-test.js',
+			file: production ? 'public/js/specific/specific-for-homepage.js' : 'dist/js/specific/specific-for-homepage.js',
 			format: 'iife',
 			sourcemap: !production
 		},

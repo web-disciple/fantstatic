@@ -44,7 +44,7 @@
         "compress:imgs:public": "node ./config/compress-images-public.js",
         "dev": "npm-run-all --parallel clear:dist watch:html build:tailwind:dist watch:scss watch:js:dist compress:imgs:dist server:start",
         "dev:hot-reload": "npm-run-all --parallel clear:dist compress:imgs server:start:hot-reload watch:html watch:scss watch:js",
-        "vercel:build": "npm-run-all --parallel clear:public build:html:public build:tailwind:public build:scss:public build:js:public compress:imgs:public"
+        "build": "npm-run-all --parallel clear:public build:html:public build:tailwind:public build:scss:public build:js:public compress:imgs:public"
     },
     "author": "web_disciple",
     "license": "ISC"
