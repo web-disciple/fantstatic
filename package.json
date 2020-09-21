@@ -37,7 +37,7 @@
         "build:html:public": "html-includes --src _dev/html --dest public --minify",
         "watch:scss": "node-sass --watch _dev/style/outputs/main.scss -o dist/style/outputs --output-style",
         "build:scss:dist": "node-sass --watch _dev/style/outputs/main.scss -o dist/style/outputs --output-style",
-        "build:scss:public": "node-sass _dev/style/outputs/main.scss -o public/style --output-style --compressed",
+        "build:scss:public": "node-sass _dev/style/outputs/main.scss -o public/style/outputs --output-style --compressed",
         "watch:js:dist": "rollup -c -w",
         "build:js:public": "rollup -c",
         "compress:imgs:dist": "node ./config/compress-images-dist.js",
